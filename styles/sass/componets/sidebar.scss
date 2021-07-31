@@ -1,0 +1,23 @@
+.sidebar {
+  flex: 0 0 16%;
+  margin-top: -3.4rem;
+  background-color: #2d3436;
+  scroll-behavior: smooth;
+  &__container {
+    color: $color-white;
+
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin: 2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.li-active {
+  text-decoration: underline;
+}

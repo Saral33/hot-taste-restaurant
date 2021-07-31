@@ -1,0 +1,24 @@
+.header {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.774)),
+    url('../../../public/images/mainimage.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &__container {
+    text-align: center;
+    position: absolute;
+    line-height: 5.5rem;
+    top: 35%;
+    left: 30%;
+    color: $color-white;
+
+    button {
+      background-color: rgb(202, 2, 2);
+      margin-top: 2rem;
+      color: $color-white;
+    }
+  }
+}

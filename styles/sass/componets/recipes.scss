@@ -1,0 +1,58 @@
+.main__container {
+  @include flex-row;
+}
+
+.product__container {
+  margin-top: -3.8rem;
+  background-color: blanchedalmond;
+  flex: 1;
+  padding: 1rem 5rem;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+
+    grid-gap: 3rem;
+  }
+}
+.product__box {
+  padding: 0 0 4rem 0;
+  background-color: #fff;
+  max-width: 30rem;
+  text-align: center;
+
+  &__contents {
+    padding: 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.recipe__details__container {
+  padding: 1rem 20rem;
+}
+
+.recipe__details {
+  @include flex-row;
+  flex-wrap: wrap;
+
+  &__image {
+    flex: 0 0 68%;
+  }
+  &__side {
+    flex: 1;
+  }
+}
+
+.recipe__heading {
+  font-family: sans-serif;
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+
+.recipe__details__contents {
+  padding: 3rem 0;
+}
+.reviews {
+  padding: 5rem 0;
+}
