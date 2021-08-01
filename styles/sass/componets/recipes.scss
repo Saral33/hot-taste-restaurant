@@ -55,4 +55,37 @@
 }
 .reviews {
   padding: 5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__image {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+
+  &__left {
+    flex: 0 0 40%;
+  }
+
+  &__upper {
+    margin-top: 2rem;
+    min-width: 22%;
+    display: flex;
+    margin-left: -8rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 2rem;
+  }
 }

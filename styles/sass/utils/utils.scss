@@ -194,6 +194,22 @@ input:focus {
       transform: scaleX(1.1);
     }
   }
+
+  &__comment {
+    margin-top: 3.5rem;
+
+    width: 93%;
+    display: flex;
+    flex-direction: column;
+    textarea {
+      padding: 1rem;
+    }
+
+    button {
+      margin-top: 2rem;
+      width: 30%;
+    }
+  }
 }
 
 .normal-link {
@@ -224,4 +240,22 @@ input:focus {
   display: flex;
   justify-content: space-between;
   width: 30%;
+}
+
+.rater {
+  display: flex;
+  color: $primary-color;
+  font-size: 2.5rem;
+
+  &__icon {
+    transition: all 0.3s;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.comment {
+  font-size: 1.8rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

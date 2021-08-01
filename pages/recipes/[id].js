@@ -2,10 +2,12 @@ import Layout from '../../components/Layout/Layout';
 import ProductDetails from '../../components/Layout/ProductDetails';
 import { getProductDetails } from '../../redux/actions/productAction';
 import { wrapper } from '../../redux/store';
+import { useSelector } from 'react-redux';
 
 const ProductDetailsPage = () => {
+  const { product } = useSelector((state) => state.singleProduct);
   return (
-    <Layout>
+    <Layout title={product.title} content={product.description}>
       <ProductDetails />
     </Layout>
   );

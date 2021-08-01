@@ -8,9 +8,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/dist/client/router';
+import Rate from '../Utils/Rate';
+import React from 'react';
 
 const ProductDetails = () => {
   const router = useRouter();
+
   const { error, product } = useSelector((state) => state.singleProduct);
 
   return (
@@ -67,7 +70,61 @@ const ProductDetails = () => {
           </button>
         </div>
         <div className="reviews">
-          <h1 className="recipe__heading">Reviews</h1>
+          <div className="reviews__left">
+            <h1 className="recipe__heading">Give some feedback</h1>
+            <p className="normal-text">Rate the recipe</p>
+            <div className="rater">
+              <Rate />
+            </div>
+            <form className="form__comment">
+              <textarea
+                className="comment"
+                cols={44}
+                rows={4}
+                placeholder="Comment your opinion, review about this recipe"
+              />
+              <button className="btn-secondary">Submit</button>
+            </form>
+          </div>
+          <div className="reviews__right">
+            <h1 className="recipe__heading">Some Reviews</h1>
+            <React.Fragment>
+              <div className="reviews__upper">
+                <Image
+                  className="reviews__image"
+                  src="/images/berlin.jpg"
+                  height={30}
+                  width={30}
+                  alt="userpic"
+                />
+                <p className="reviews__name">User Name</p>
+              </div>
+              <div className="reviews__lower">
+                <Rating value={3} />
+                <p className="normal-text">Very amazing!!</p>
+              </div>
+              <div className="reviews__upper">
+                <Image
+                  className="reviews__image"
+                  src="/images/berlin.jpg"
+                  height={30}
+                  width={30}
+                  alt="userpic"
+                />
+                <p className="reviews__name">User Name</p>
+              </div>
+              <div className="reviews__lower">
+                <Rating value={3} />
+                <p className="normal-text">Very amazing!!</p>
+              </div>
+            </React.Fragment>
+            <div className="pagination__container">
+              <div className="pagination">
+                <button className="search-btn">Previous</button>
+                <button className="search-btn">Next</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
