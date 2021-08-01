@@ -23,7 +23,12 @@ class ApiFeatures {
     const str = { ...this.queryStr };
     const excludedFields = ['search', 'page', 'sort'];
     excludedFields.forEach((el) => delete str[el]);
-    this.query = this.query.find(str);
+    if (str.category === 'null') {
+      this.query = this.query.find({});
+    } else {
+      this.query = this.query.find(str);
+    }
+
     return this;
   }
 

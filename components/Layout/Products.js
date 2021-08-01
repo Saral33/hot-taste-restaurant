@@ -11,7 +11,6 @@ const Products = () => {
   const page = Number(router.query.page) || 1;
 
   const pageHandler = (page) => {
-    let path;
     if (router.query.sort) {
       router.push(`/recipes?sort=${router.query.sort}&page=${page}`);
     } else {

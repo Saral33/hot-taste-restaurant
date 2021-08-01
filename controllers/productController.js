@@ -33,4 +33,22 @@ const getSingleProduct = asyncHandler(async (req, res, next) => {
   });
 });
 
-module.exports = { getAllProducts, getSingleProduct };
+const getAllCategories = asyncHandler(async (req, res, next) => {
+  const products = await Product.find({}).sort('price');
+
+  const categories = [];
+
+  products.map((product) =>
+    categories.push({ category: product.category, image: product.image_url })
+  );
+
+  const result = Array.from(new Set(categories.map((a) => a.category))).map(
+    (category) => {
+      return categories.find((a) => a.category === category);
+    }
+  );
+
+  res.json(result);
+});
+
+module.exports = { getAllProducts, getSingleProduct, getAllCategories };

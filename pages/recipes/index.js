@@ -20,6 +20,13 @@ export default Recipes;
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>
     async ({ req, query }) => {
-      await store.dispatch(getAllProducts(req, query.page, query.sort));
+      await store.dispatch(
+        getAllProducts(
+          req,
+          query.page,
+          query.sort,
+          query.category && query.category
+        )
+      );
     }
 );

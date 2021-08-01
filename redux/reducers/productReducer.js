@@ -1,4 +1,6 @@
 import {
+  GET_CATEGORIES_FAIL,
+  GET_CATEGORIES_SUCCESS,
   GET_PRODUCTS_FAIL,
   GET_PRODUCTS_REQ,
   GET_PRODUCTS_SUCCESS,
@@ -32,6 +34,19 @@ export const singleProductReducer = (state = {}, action) => {
     case GET_PRODUCT_DETAIL_SUCCESS:
       return { product: action.payload };
     case GET_PRODUCT_DETAIL_FAIL:
+      return { error: action.payload };
+  }
+};
+
+export const categoryReducer = (state = { categories: [] }, action) => {
+  switch (action.type) {
+    default:
+      return state;
+
+    case GET_CATEGORIES_SUCCESS:
+      return { categories: action.payload };
+
+    case GET_CATEGORIES_FAIL:
       return { error: action.payload };
   }
 };

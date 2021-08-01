@@ -75,7 +75,12 @@ const SideBar = () => {
         </li>
         {expandedSort && expandedSorts}
 
-        <li className="normal-text">Categories</li>
+        <li
+          onClick={() => router.push('/recipes/categories')}
+          className="normal-text"
+        >
+          Categories
+        </li>
       </ul>
     </div>
   );
