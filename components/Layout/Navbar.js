@@ -3,17 +3,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import SearchIcon from '../../public/svg/searchicon.svg';
+
 import MenuIcon from '../../public/svg/menu.svg';
 import CloseIcon from '../../public/svg/close.svg';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/dist/client/router';
+import SearchBox from '../Utils/SearchBox';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+
+  const router = useRouter();
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const searchHandler = (query) => {
+    router.push(`/recipes?search=${query}`);
+  };
+
   return (
-    <nav className="navbar">
-      <div className="logo">
+    <motion.nav className="navbar">
+      <motion.div
+        initial={{ y: -200 }}
+        animate={{ y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          type: 'spring',
+          stiffness: '130',
+        }}
+        className="logo"
+      >
         <Link href="/">
           <a>
             {' '}
@@ -26,16 +46,8 @@ const Navbar = () => {
             />
           </a>
         </Link>
-      </div>
-      <div className="navbar__search">
-        <input
-          className="search-input"
-          placeholder="Search all Recipes,Food,Ingredients....."
-        />
-        <button className="search-btn">
-          <Image src={SearchIcon} width={30} height={30} alt="searchicon" />
-        </button>
-      </div>
+      </motion.div>
+      <SearchBox onSearch={searchHandler} />
       <ul className={click ? 'navbar__contents active' : 'navbar__contents'}>
         <li className="option">
           <Link href="/recipes">
@@ -66,7 +78,7 @@ const Navbar = () => {
           <Image alt="logo" src={MenuIcon} width={80} height={80} />
         )}
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

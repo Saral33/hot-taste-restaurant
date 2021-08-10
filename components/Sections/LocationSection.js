@@ -1,12 +1,21 @@
+import Animate from '../Animations/Animate';
 import Card from '../Utils/Card';
 const LocationSection = () => {
   return (
     <section className="location-section">
-      <h1 style={{ color: '#f5deee' }} className="section-header">
+      <Animate
+        type="left-right"
+        initx="-80vw"
+        finalx={0}
+        style={{ color: '#f5deee' }}
+        className="section-header"
+      >
         Find us at your hometown
-      </h1>
+      </Animate>
       <div className="section__contents">
-        <p
+        <Animate
+          delay={1.2}
+          duration={2}
           className="section__para"
           style={{ padding: '0 20rem', color: '#fff', fontWeight: '100' }}
         >
@@ -14,7 +23,7 @@ const LocationSection = () => {
           upcoming future. Our goal is to open branch in many cities as possible
           to provide our awesome taste to make you happy. Stay tuned and wait
           for us.
-        </p>
+        </Animate>
         <div className="card__container">
           <Card
             nolink

@@ -11,15 +11,13 @@ import {
 } from '../constants/productConstants';
 
 export const getAllProducts =
-  (req, page = 1, sort, category) =>
+  (req, page = 1, sort = '', category, search = '') =>
   async (dispatch) => {
     const { origin } = absoluteUrl(req);
     dispatch({ type: GET_PRODUCTS_REQ });
     try {
       const { data } = await axios.get(
-        `${origin}/api/products?page=${page}&sort=${sort}&category=${
-          category ? category : 'null'
-        }`
+        `${origin}/api/products?search=${search}&page=${page}&sort=${sort}&category=${category}`
       );
       dispatch({
         type: GET_PRODUCTS_SUCCESS,

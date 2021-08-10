@@ -22,3 +22,26 @@
     }
   }
 }
+
+.autocomplete {
+  line-height: 4rem;
+  position: absolute;
+  background-color: #fff;
+  width: 90%;
+  top: 70%;
+  right: 9%;
+  margin-right: 2px;
+  padding: 1.5rem 0;
+
+  li {
+    padding: 0 2rem;
+    font-size: 1.9rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.li:not(:last-child) {
+  border-bottom: 1px solid $color-black;
+}

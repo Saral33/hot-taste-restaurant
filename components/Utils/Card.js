@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { faClock, faUser } from '@fortawesome/free-regular-svg-icons';
+import Animate from '../Animations/Animate';
 
 const Card = ({
   title,
@@ -21,7 +22,13 @@ const Card = ({
     if (!nolink) router.push('/recipes');
   };
   return (
-    <div className="card" onClick={routeHandler}>
+    <Animate
+      delay={0.4}
+      duration={1.5}
+      type="fade"
+      className="card"
+      onClick={routeHandler}
+    >
       {image && (
         <div className="card__image__container">
           <Image width={310} height={200} src={image} alt={title} />
@@ -80,7 +87,7 @@ const Card = ({
           )}
         </div>
       </div>
-    </div>
+    </Animate>
   );
 };
 

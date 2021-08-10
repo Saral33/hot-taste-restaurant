@@ -12,6 +12,7 @@
     @include flex-row;
     justify-content: space-around;
     align-items: center;
+    position: relative;
   }
 
   &__contents {

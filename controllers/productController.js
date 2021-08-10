@@ -51,4 +51,17 @@ const getAllCategories = asyncHandler(async (req, res, next) => {
   res.json(result);
 });
 
-module.exports = { getAllProducts, getSingleProduct, getAllCategories };
+const getRecommendations = asyncHandler(async (req, res) => {
+  const recommendations = await Product.find({
+    _id: { $ne: req.query.id },
+    category: req.query.category,
+  }).limit(3);
+  res.json({ recommendations });
+});
+
+module.exports = {
+  getAllProducts,
+  getSingleProduct,
+  getAllCategories,
+  getRecommendations,
+};

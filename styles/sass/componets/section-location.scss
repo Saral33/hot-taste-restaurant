@@ -1,5 +1,6 @@
 .location-section {
   @include section-rule;
+  margin-top: -0.3rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.623), rgba(0, 0, 0, 0.425)),
     url('../../../public/images/hometown.jpg');
   background-position: center;

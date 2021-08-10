@@ -1,19 +1,38 @@
 import Image from 'next/image';
 import StarRating from '../Utils/StarRating';
 import Link from 'next/dist/client/link';
-import { capitalizeFirstLetter } from '../../utils/letterUtils';
+import { capitalizeFirstLetter } from '../../utils/arrayMethods';
+import Animate from '../Animations/Animate';
 
-const ProductBox = ({ image, title, price, value, id, category, key }) => {
+const ProductBox = ({
+  image,
+  title,
+  price,
+  value,
+  id,
+  category,
+  keys,
+  filter,
+}) => {
   return (
-    <div className="product__box" key={key}>
-      <Image
-        className="product__image"
-        width={120}
-        height={120}
-        alt="recipe"
-        src={image}
-        layout="responsive"
-      />
+    <Animate
+      delay={0.4}
+      duration={1.5}
+      type="fade"
+      className="product__box"
+      key={keys}
+    >
+      <div className="product__image">
+        <Image
+          alt="recipe"
+          src={image}
+          width={250}
+          height={200}
+          layout="responsive"
+          objectFit="cover"
+        />
+      </div>
+
       <div className="product__box__contents">
         {category && (
           <Link href={`/recipes?category=${category}`}>
@@ -23,7 +42,7 @@ const ProductBox = ({ image, title, price, value, id, category, key }) => {
           </Link>
         )}
         {title && (
-          <Link href={`/recipes/${id}`}>
+          <Link href={`/recipes/${id}?category=${filter}`}>
             <a className=" normal-link normal-text">
               {title} (${price})
             </a>
@@ -35,7 +54,7 @@ const ProductBox = ({ image, title, price, value, id, category, key }) => {
           </p>
         )}
       </div>
-    </div>
+    </Animate>
   );
 };
 

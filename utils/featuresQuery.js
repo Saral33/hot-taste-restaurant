@@ -23,7 +23,7 @@ class ApiFeatures {
     const str = { ...this.queryStr };
     const excludedFields = ['search', 'page', 'sort'];
     excludedFields.forEach((el) => delete str[el]);
-    if (str.category === 'null') {
+    if (str.category === 'undefined') {
       this.query = this.query.find({});
     } else {
       this.query = this.query.find(str);
@@ -34,7 +34,9 @@ class ApiFeatures {
 
   pagination(limit) {
     const page = Number(this.queryStr.page) || 1;
+
     const skip = (page - 1) * limit;
+    console.log(skip);
     this.query = this.query.skip(skip).limit(limit);
     return this;
   }

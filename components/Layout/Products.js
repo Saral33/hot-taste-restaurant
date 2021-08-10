@@ -1,6 +1,7 @@
 import ProductBox from './ProductBox';
 import { useRouter } from 'next/dist/client/router';
 import { useSelector } from 'react-redux';
+import Image from 'next/dist/client/image';
 
 const Products = () => {
   const { products, loading, count, error } = useSelector(
@@ -11,10 +12,12 @@ const Products = () => {
   const page = Number(router.query.page) || 1;
 
   const pageHandler = (page) => {
-    if (router.query.sort) {
-      router.push(`/recipes?sort=${router.query.sort}&page=${page}`);
+    if (router.query.page) {
+      const str = router.asPath.replace(router.query.page, page);
+      router.push(str);
     } else {
-      router.push(`/recipes?page=${page}`);
+      const query = router.asPath.includes('?') ? '&' : '?';
+      router.push(`${router.asPath}${query}page=${page}`);
     }
   };
 
@@ -24,15 +27,40 @@ const Products = () => {
 
   return (
     <div className="product__container">
-      <h1 className="primary-heading">Our Recipes</h1>
+      <h1 className="primary-heading">
+        {router.query.search
+          ? `Search result of "${router.query.search}"`
+          : 'Our Recipes'}
+      </h1>
       {loading ? (
         <h1>Loading....</h1>
+      ) : router.query.search && products.length <= 0 ? (
+        <>
+          <h1>
+            We could not found the result for &quot;{router.query.search}&quot;
+          </h1>
+          <p className="normal-text">Try searching other query</p>
+          <button
+            onClick={() => router.push('/recipes')}
+            className="btn-secondary"
+          >
+            Go Back
+          </button>
+          <Image
+            width={400}
+            height={400}
+            alt="error"
+            src="/images/errorpage.png"
+          />
+        </>
       ) : (
         <>
           <div className="product__container__grid">
             {products.map((p) => (
               <ProductBox
+                filter={p.category}
                 key={p._id}
+                keys={p._id}
                 id={p._id}
                 image={p.image_url}
                 title={p.title}

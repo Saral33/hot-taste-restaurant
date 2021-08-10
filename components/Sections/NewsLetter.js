@@ -1,6 +1,13 @@
+import Animate from '../Animations/Animate';
+
 const NewsLetter = () => {
   return (
-    <section className="newslater-section">
+    <Animate
+      type="left-right"
+      initx="-80vw"
+      finalx={0}
+      className="newslater-section"
+    >
       <h1 className="section-header">Get Update from us</h1>
       <div className="section__contents">
         <p className="section__para" style={{ padding: '0 20rem' }}>
@@ -15,7 +22,7 @@ const NewsLetter = () => {
           </button>
         </form>
       </div>
-    </section>
+    </Animate>
   );
 };
 

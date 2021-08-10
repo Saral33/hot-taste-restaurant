@@ -1,5 +1,6 @@
 import Card from '../Utils/Card';
 import { useRouter } from 'next/router';
+import Animate from '../Animations/Animate';
 
 const RecipesSection = () => {
   const router = useRouter();
@@ -8,15 +9,26 @@ const RecipesSection = () => {
     <section className="section-recipe">
       <h1 className="section-header">Over 100+ recipes</h1>
       <div className="section__contents">
-        <p className="section__para" style={{ padding: '0 20rem' }}>
+        <Animate
+          type="left-right"
+          initx="-80vw"
+          finalx={0}
+          className="section__para"
+          style={{ padding: '0 20rem' }}
+        >
           We contain large no of recipes for you to taste. All recipes are made
           with love suitable for all foodies either vegan or gluton. Our quality
           menu has kept newcomers and frequent visitors returning as loyal
           guests.
-        </p>
-        <p className="section__para" style={{ padding: '0 20rem' }}>
+        </Animate>
+        <Animate
+          delay={0.5}
+          duration={1.5}
+          className="section__para"
+          style={{ padding: '0 20rem' }}
+        >
           Here are our top three recipes of all time
-        </p>
+        </Animate>
         <div className="card__container">
           <Card
             image="/images/duck.jpg"

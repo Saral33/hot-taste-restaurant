@@ -3,6 +3,7 @@ import ProductDetails from '../../components/Layout/ProductDetails';
 import { getProductDetails } from '../../redux/actions/productAction';
 import { wrapper } from '../../redux/store';
 import { useSelector } from 'react-redux';
+import Recommendations from '../../components/Layout/Recommendations';
 
 const ProductDetailsPage = () => {
   const { product } = useSelector((state) => state.singleProduct);

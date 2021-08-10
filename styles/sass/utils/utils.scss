@@ -7,7 +7,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0.493)),
     url('../../../public/images/cloudy.jpg');
   display: flex;
-  margin-top: 4rem;
+
   color: $color-white;
   padding: 3rem 15rem;
   font-weight: 100;
@@ -23,7 +23,7 @@
 .search-input {
   background-color: $color-white;
   padding: 1.3rem 1.3rem;
-  border-radius: 2rem;
+  // border-radius: 2rem;
   font-size: large;
   border: none;
   width: 90%;

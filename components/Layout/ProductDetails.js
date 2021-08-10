@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/dist/client/router';
 import Rate from '../Utils/Rate';
 import React from 'react';
+import Recommendations from './Recommendations';
 
 const ProductDetails = () => {
   const router = useRouter();
@@ -36,9 +37,9 @@ const ProductDetails = () => {
               className="recipe__image"
               alt="recipe"
               height={500}
-              width={700}
+              width={650}
               src={product.image_url}
-              layout="fixed"
+              layout="responsive"
             />
           </div>
           <div className="recipe__details__side">
@@ -127,6 +128,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <Recommendations title={product.title} />
     </div>
   );
 };

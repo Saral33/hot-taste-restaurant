@@ -5,19 +5,23 @@ import {
   faShoppingCart,
   faUtensils,
 } from '@fortawesome/free-solid-svg-icons';
+import Animate from '../Animations/Animate';
 
 const About = () => {
   return (
     <section className="section__about">
       <h1 className="section-header">Taste Like Never Before</h1>
       <div className="section__contents">
-        <p className="section__para" style={{ padding: '0 20rem' }}>
-          Yes, you heard it right. We, Hot Taste are here to present you
-          experience you have never felt before. Tired of cooking? Don&apos;t
-          worry we are here to take care of that. Leave your all cooking duties
-          to all. We provide all sort of foods in very cheap price. Give it a
-          try and you won&apos;t regret!
-        </p>
+        <Animate type="left-right" initx="-80vw" finalx={0}>
+          <p className="section__para" style={{ padding: '0 20rem' }}>
+            Yes, you heard it right. We, Hot Taste are here to present you
+            experience you have never felt before. Tired of cooking? Don&apos;t
+            worry we are here to take care of that. Leave your all cooking
+            duties to all. We provide all sort of foods in very cheap price.
+            Give it a try and you won&apos;t regret!
+          </p>
+        </Animate>
+
         <div className="card__container">
           <MiniCard
             title="100% Fresh"

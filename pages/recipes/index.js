@@ -25,7 +25,8 @@ export const getServerSideProps = wrapper.getServerSideProps(
           req,
           query.page,
           query.sort,
-          query.category && query.category
+          query.category && query.category,
+          query.search
         )
       );
     }
