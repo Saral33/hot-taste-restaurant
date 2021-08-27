@@ -14,7 +14,7 @@ const Recommendations = ({ title }) => {
       try {
         setLoading(true);
         const res = await axios.get(
-          `${process.env.BASE_URL}/api/products/recommendations/${router.query.id}?category=${router.query.category}`
+          `/api/products/recommendations/${router.query.id}?category=${router.query.category}`
         );
         setProducts(res.data.recommendations);
         setLoading(false);
