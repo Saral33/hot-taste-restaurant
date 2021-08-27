@@ -23,7 +23,9 @@ const Recommendations = ({ title }) => {
         console.error(error.response);
       }
     }
-    getData();
+    if (router.query.id && router.query.category) {
+      getData();
+    }
   }, [router]);
 
   return (
