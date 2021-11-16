@@ -22,8 +22,9 @@ const RecipesSection = () => {
           guests.
         </Animate>
         <Animate
-          delay={0.5}
-          duration={1.5}
+          type="left-right"
+          initx="80vw"
+          finalx={0}
           className="section__para"
           style={{ padding: '0 20rem' }}
         >

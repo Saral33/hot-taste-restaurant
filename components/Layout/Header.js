@@ -1,5 +1,6 @@
 import Navbar from './Navbar';
 import { motion } from 'framer-motion';
+import Link from 'next/dist/client/link';
 
 const navVariant = {
   hidden: {
@@ -40,7 +41,7 @@ const Header = () => {
         <span className="primary-text">In Cheap And Affordable Price</span>
 
         <motion.button variants={buttonVariant} className="btn-primary">
-          Explore More
+          <Link href="/recipes">Explore More</Link>
         </motion.button>
       </motion.div>
     </header>

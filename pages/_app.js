@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
     minimum: 0.3,
     easing: 'ease',
     speed: 800,
-    showSpinner: false,
+    showSpinner: true,
   });
   Router.events.on('routeChangeStart', () => NProgress.start());
   Router.events.on('routeChangeComplete', () => NProgress.done());

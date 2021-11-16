@@ -1,3 +1,4 @@
+import { cartReducer } from './cartReducer';
 import {
   allProductsReducer,
   categoryReducer,
@@ -10,4 +11,5 @@ export const rootReducer = combineReducers({
   allProducts: allProductsReducer,
   singleProduct: singleProductReducer,
   categories: categoryReducer,
+  cart: cartReducer,
 });

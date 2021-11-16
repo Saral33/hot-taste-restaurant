@@ -105,8 +105,11 @@ const SearchBox = (props) => {
   useEffect(() => {
     if (query) {
       const timer1 = setTimeout(() => {
-        const result = list.filter((x) => x.includes(query));
-        setSuggestion(result);
+        const options =
+          list.filter((list) =>
+            list.toLowerCase().indexOf(query.toLowerCase())
+          ) > -1;
+        setSuggestion(options);
       }, 1000);
       return () => {
         clearTimeout(timer1);

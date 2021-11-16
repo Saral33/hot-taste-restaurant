@@ -26,8 +26,16 @@ const reducer = (state, action) => {
   }
 };
 
+const cartReducer =
+  typeof window !== 'undefined' && localStorage.getItem('cartItems')
+    ? JSON.parse(localStorage.getItem('cartItems'))
+    : [];
+const initialState = {
+  cart: { cartItems: cartReducer },
+};
+
 const initStore = () => {
-  return createStore(reducer, bindMiddleware([thunkMiddleware]));
+  return createStore(reducer, initialState, bindMiddleware([thunkMiddleware]));
 };
 
 export const wrapper = createWrapper(initStore);

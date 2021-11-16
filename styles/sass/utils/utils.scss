@@ -4,19 +4,15 @@
   justify-content: center;
 }
 .footer {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0.493)),
-    url('../../../public/images/cloudy.jpg');
+  background-color: rgba(0, 0, 0, 0.89);
   display: flex;
-
   color: $color-white;
-  padding: 3rem 15rem;
+  padding: 1rem 5rem;
   font-weight: 100;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-top: 8rem;
   &__container__1 {
     color: $color-white;
-    flex: 0 0 30%;
+    flex: 0 0 40%;
   }
 }
 
@@ -258,4 +254,9 @@ input:focus {
 .comment {
   font-size: 1.8rem;
   font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
 }

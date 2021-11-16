@@ -20,15 +20,14 @@ const Footer = () => {
                 className="logo-image"
                 alt="logo"
                 src="/images/logo.png"
-                width={115}
-                height={115}
+                width={100}
+                height={100}
               />
             </a>
           </Link>
         </div>
         <p className="normal-text">
-          Hot Taste is fictional company created for project purpose only. This
-          company isnot real so content and data mentioned all are dummy data.
+          Hot Taste is fictional company created for project purpose only.
         </p>
         <p className="normal-text">
           Copyright &copy; 2021, created by Saral Karki

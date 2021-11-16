@@ -14,8 +14,9 @@ const LocationSection = () => {
       </Animate>
       <div className="section__contents">
         <Animate
-          delay={1.2}
-          duration={2}
+          type="left-right"
+          initx="80vw"
+          finalx="0"
           className="section__para"
           style={{ padding: '0 20rem', color: '#fff', fontWeight: '100' }}
         >

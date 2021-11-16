@@ -10,19 +10,18 @@ const Animate = ({
   className,
   initx,
   finalx,
-  inity,
-  finaly,
   style,
 }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView();
+
   useEffect(() => {
     if (inView) {
       controls.start('visible');
     }
-    if (!inView) {
-      controls.start('hidden');
-    }
+    // if (!inView) {
+    //   controls.start('hidden');
+    // }
   }, [controls, inView]);
 
   const leftRightVariants = {

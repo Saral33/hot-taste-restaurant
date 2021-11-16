@@ -11,12 +11,18 @@ import { useRouter } from 'next/dist/client/router';
 import Rate from '../Utils/Rate';
 import React from 'react';
 import Recommendations from './Recommendations';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/actions/cartAction';
 
 const ProductDetails = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const { error, product } = useSelector((state) => state.singleProduct);
-
+  const cartHandler = () => {
+    dispatch(addToCart(product._id, 1));
+    router.push('/favourites');
+  };
   return (
     <div className="recipe__details__container">
       <button onClick={() => router.back()} className="btn-secondary">
@@ -66,7 +72,7 @@ const ProductDetails = () => {
         <div className="descriptions">
           <h1 className="recipe__heading">Description</h1>
           <p className="normal-text">{product.description}</p>
-          <button className="btn-primary">
+          <button onClick={cartHandler} className="btn-primary">
             <FontAwesomeIcon icon={faHeart} /> Add to favourites
           </button>
         </div>
