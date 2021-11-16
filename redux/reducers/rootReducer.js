@@ -4,6 +4,7 @@ import {
   categoryReducer,
   singleProductReducer,
 } from './productReducer';
+import { authReducer } from './userReducer';
 
 const { combineReducers } = require('redux');
 
@@ -12,4 +13,5 @@ export const rootReducer = combineReducers({
   singleProduct: singleProductReducer,
   categories: categoryReducer,
   cart: cartReducer,
+  auth: authReducer,
 });

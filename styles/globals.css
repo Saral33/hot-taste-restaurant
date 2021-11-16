@@ -22,3 +22,29 @@ a {
 ul {
   list-style: none;
 }
+.Toastify__toast--error {
+  background-color: rgb(161, 7, 7) !important;
+  color: white !important;
+}
+.Toastify__toast--info {
+  background-color: rgb(66, 87, 155) !important;
+  color: white !important;
+}
+.Toastify__toast--warning {
+  background-color: rgb(187, 175, 14) !important;
+  color: white !important;
+}
+.Toastify__toast--success {
+  background-color: rgb(6, 119, 36) !important;
+  color: white !important;
+}
+
+.toastBody {
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 1.6rem !important;
+}
+
+.Toastify__progress-bar {
+  background-color: white !important;
+}
