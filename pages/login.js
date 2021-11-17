@@ -2,24 +2,27 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/dist/client/link';
 import LayOut from '../components/Layout/Layout';
-import { options, signIn } from 'next-auth/client';
+import { signIn } from 'next-auth/client';
 import { useState } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { toast } from 'react-toastify';
+import LoadingButton from '../components/Utils/LoadingButton';
 
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const loginHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const result = await signIn('credentials', {
       redirect: false,
       email,
       password,
     });
-    console.log(result);
+    setLoading(false);
     if (result.error) {
       toast.error(result.error);
     } else {
@@ -50,7 +53,11 @@ const Login = () => {
           type="password"
           placeholder="Enter Password"
         />
-        <button type="submit">Login</button>
+        {loading ? (
+          <LoadingButton text="Logging In" />
+        ) : (
+          <button type="submit">Login</button>
+        )}
 
         <Link href="/forgotpassword">
           <a className="normal-text  normal-link"> Forgot Password?</a>

@@ -20,7 +20,12 @@ function Favourites() {
     <Layout title="My Favourites ❤️">
       <div className="section__contents">
         {!SSR && cartItems.length == 0 ? (
-          <div style={{ marginTop: '10px', textAlign: 'center' }}>
+          <motion.div
+            transition={{ duration: 1.1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            style={{ marginTop: '10px', textAlign: 'center' }}
+          >
             <Image
               src="/images/favourites.png"
               alt="love"
@@ -38,7 +43,7 @@ function Favourites() {
             >
               Let&apos;s Go and Explore
             </button>
-          </div>
+          </motion.div>
         ) : (
           !SSR && (
             <div

@@ -6,8 +6,9 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AnimatePresence } from 'framer-motion';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   NProgress.configure({
     minimum: 0.3,
     easing: 'ease',
@@ -19,7 +20,10 @@ function MyApp({ Component, pageProps }) {
   Router.events.on('routeChangeError', () => NProgress.done());
   return (
     <>
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
+
       <ToastContainer
         progressClassName="toastProgress"
         bodyClassName="toastBody"

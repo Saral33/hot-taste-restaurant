@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import LayOut from '../components/Layout/Layout';
+import LoadingButton from '../components/Utils/LoadingButton';
 import { registerUser } from '../redux/actions/userAction';
 import { RESET } from '../redux/constants/userConstants';
 
@@ -75,9 +76,13 @@ const Register = () => {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={loading} type="submit">
-          Register
-        </button>
+        {loading ? (
+          <LoadingButton text="Registering" />
+        ) : (
+          <button disabled={loading} type="submit">
+            Register
+          </button>
+        )}
 
         <Link href="/login">
           <a className="normal-text normal-link">
