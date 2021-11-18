@@ -56,7 +56,7 @@ const Products = () => {
       ) : (
         <>
           <div className="product__container__grid">
-            {products.map((p) => (
+            {products?.map((p) => (
               <ProductBox
                 filter={p.category}
                 key={p._id}

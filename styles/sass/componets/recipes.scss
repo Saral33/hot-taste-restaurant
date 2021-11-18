@@ -4,10 +4,10 @@
 
 .product__container {
   margin-top: -3.8rem;
-  background-color: blanchedalmond;
+  background-color: rgb(241, 241, 241);
   flex: 1;
   padding: 1rem 5rem;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
   &__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
@@ -20,7 +20,9 @@
   background-color: #fff;
   max-width: 30rem;
   text-align: center;
-
+  box-shadow: 3px 8px 5px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 8px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 8px 5px 0px rgba(0, 0, 0, 0.5);
   &__contents {
     padding: 3rem 3rem;
     display: flex;

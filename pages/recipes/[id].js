@@ -15,7 +15,7 @@ const ProductDetailsPage = () => {
   }, [dispatch]);
   const { product } = useSelector((state) => state.singleProduct);
   return (
-    <Layout title={product.title} content={product.description}>
+    <Layout title={product?.title} content={product?.description}>
       <ProductDetails />
     </Layout>
   );
